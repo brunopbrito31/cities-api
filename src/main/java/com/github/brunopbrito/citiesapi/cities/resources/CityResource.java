@@ -23,7 +23,7 @@ public class CityResource {
         return service.getAll();
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public Optional<City> getOne(@PathVariable Long id){
         return service.getOne(id);
     }
