@@ -2,6 +2,7 @@ package com.github.brunopbrito.citiesapi.countries.resources;
 
 import com.github.brunopbrito.citiesapi.countries.entities.Country;
 import com.github.brunopbrito.citiesapi.countries.repositories.CountryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +15,13 @@ import java.util.Optional;
 @RequestMapping("/countries")
 public class CountryResource {
 
-    private final CountryRepository repository;
+    @Autowired
+    private CountryRepository repository;
 
 
-    public CountryResource(CountryRepository repository) {
+    /*public CountryResource(CountryRepository repository) {
         this.repository = repository;
-    }
+    }*/
 
     @GetMapping
     public List<Country> countries(){
