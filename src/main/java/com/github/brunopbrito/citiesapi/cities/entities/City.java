@@ -1,5 +1,12 @@
 package com.github.brunopbrito.citiesapi.cities.entities;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
+import org.springframework.data.geo.Point;
+import sun.jvm.hotspot.types.PointerType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,6 +15,10 @@ import java.util.Objects;
 // Falta fazer a ponte do tipo point para a minha API
 @Entity(name="City")
 @Table(name="cidade")
+@TypeDefs(value = {
+        @TypeDef(name ="point", typeClass = PointType.class)
+}
+)
 public class City {
 
     @Id
@@ -16,9 +27,23 @@ public class City {
     private String name;
     private Integer uf;
     private String lat_lon;
-    Double latitude;
-    Double longitude;
-    Integer cod_tom;
+    private Double latitude;
+    private Double longitude;
+    private Integer cod_tom;
+    @Type(type="point")
+    @Column(name = "lat_lon", updatable = false, insertable = false)
+    private Point location;
+
+    public City(Long id, String name, Integer uf, String lat_lon, Double latitude, Double longitude, Integer cod_tom, Point location) {
+        this.id = id;
+        this.name = name;
+        this.uf = uf;
+        this.lat_lon = lat_lon;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.cod_tom = cod_tom;
+        this.location = location;
+    }
 
     public City() {
     }
@@ -92,16 +117,11 @@ public class City {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "City{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", uf=" + uf +
-                ", lat_lon='" + lat_lon + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", cod_tom=" + cod_tom +
-                '}';
+    public Point getLocation() {
+        return location;
+    }
+
+    public void setLocation(Point location) {
+        this.location = location;
     }
 }
