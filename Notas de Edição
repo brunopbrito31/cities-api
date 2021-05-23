@@ -1,0 +1,15 @@
+@@brunopbrito31
+
+Notas de Edição "Reconsiderações-parte1 (22/05 - 23:23):
+
+0. Remoção da API de calculo de distâncias, tais como os elementos que dela fazem parte (para correção).
+1. Removidas todas as classes responsáveis pelo calculo de distância para correção de BUGs;
+2. Correção do nome da classe de estados;
+3. Estados agora retornam o objeto país (anteriormente retornavam apenas o Id);
+4. Inserida a classe para "ensinar" o spring a trabalhar com o tipo ponto do postgres;
+5. Remoção dos métodos set das entities
+6. Remoção dos métodos hashcode, equals e toString das entites;
+7. Retorno das entidades modificado de list para Page;
+
+
+
