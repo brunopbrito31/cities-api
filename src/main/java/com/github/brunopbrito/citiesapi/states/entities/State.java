@@ -1,6 +1,5 @@
-package com.github.brunopbrito.citiesapi.staties.entities;
+package com.github.brunopbrito.citiesapi.states.entities;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
