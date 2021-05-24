@@ -1,11 +1,10 @@
 package com.github.brunopbrito.citiesapi.cities.entities;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.geo.Point;
-import sun.jvm.hotspot.types.PointerType;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
